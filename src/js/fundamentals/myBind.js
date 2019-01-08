@@ -1,8 +1,8 @@
 Function.prototype.myBind = function(context) {
   var fn = this,
-    previousArgs = Array.prototype.slice(arguments, 1);
+    previousArgs = Array.prototype.slice.call(arguments, 1);
   return function() {
-    var currentArgs = Array.prototype.slice(arguments);
+    var currentArgs = Array.prototype.slice.call(arguments);
     return fn.call(context, ...previousArgs, ...currentArgs);
   };
 };
